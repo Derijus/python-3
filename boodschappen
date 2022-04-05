@@ -48,7 +48,6 @@ def overzicht():
   print("")
   keuzemenu()
 
-
 def nieuwproduct():
   doorgaan = True
   while doorgaan:
@@ -89,7 +88,6 @@ def nieuwproduct():
       keuzemenu()
     else:
       print("Dit is geen geldige keuze.")
-  
 
 def productweg():
   
@@ -159,5 +157,4 @@ def vervang():
   winkelmandinhoud()
   keuzemenu()
   
- 
 welkomsbericht()
