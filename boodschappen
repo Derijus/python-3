@@ -1,0 +1,163 @@
+items = {"Brood": 2, "Water": 1, "Sap": 3, "Kaas": 6, "Champagne": 10}
+prijs = 0
+winkelmand = []
+def welkomsbericht():
+  print("Welkom bij de supermarkt.")
+  keuzemenu()
+  print("")
+
+def winkelmandinhoud():
+  for x in range(len(winkelmand)):
+    print(winkelmand[x])
+    
+def keuzemenu():
+  print("")
+  print("Kies uit de volgende opties:")
+  print("1 - Producten bekijken")
+  print("2 - Product toevoegen aan winkelmand")
+  print("3 - Product verwijderen uit winkelmand")
+  print("4 - Product vervangen door ander product")
+  print("5 - Afrekenen")
+  print("")
+  keuze = input()
+  if keuze == "1": 
+    overzicht()
+  elif keuze == "2":
+    nieuwproduct()
+  elif keuze == "3":
+    productweg()
+  elif keuze == "4":
+    vervang()
+  elif keuze == "5":
+    afrekenen()
+  else:
+    print("Dit is geen geldige keuze.")
+
+def afrekenen():
+  print("prijs: € " + str(prijs) + ",-")
+  print("Dankjewel voor het winkelen bij onze supermarkt!")
+  
+def overzicht():
+  print("")
+  print("De producten en pijs zijn:")
+  print("Brood - " + "€" + str(items["Brood"]))
+  print("Water - " + "€" + str(items["Water"]))
+  print("Sap - " + "€" + str(items["Sap"]))
+  print("Kaas - " + "€" + str(items["Kaas"]))
+  print("Champagne - " + "€" + str(items["Champagne"]))
+  print("")
+  keuzemenu()
+
+
+def nieuwproduct():
+  doorgaan = True
+  while doorgaan:
+    print("")
+    print("Kies uit de volgende producten:")
+    print("Brood - Water - Sap - Kaas - Champagne")
+    print("Typ stop om terug te gaan naar het keuzemenu.")
+    plusproduct = input("")
+    if plusproduct == "Brood" or plusproduct == "brood":
+      print("Hoeveel brood wil je toevoegen? (Geef een getal)")
+      aantalproduct = int(input(""))
+      for x in range(aantalproduct):
+        winkelmand.append("Brood")
+    elif plusproduct == "Water" or plusproduct == "water":
+      print("Hoeveel water wil je toevoegen? (Geef een getal)")
+      aantalproduct = int(input(""))
+      for x in range(aantalproduct):
+        winkelmand.append("Water")
+    elif plusproduct == "Sap" or plusproduct == "sap":
+      print("Hoeveel sap wil je toevoegen? (Geef een getal)")
+      aantalproduct = int(input(""))
+      for x in range(aantalproduct):
+        winkelmand.append("Sap")
+    elif plusproduct == "Kaas" or plusproduct == "kaas":
+      print("Hoeveel kaas wil je toevoegen? (Geef een getal)")
+      aantalproduct = int(input(""))
+      for x in range(aantalproduct):
+        winkelmand.append("Kaas")
+    elif plusproduct == "Champagne" or plusproduct == "champagne":
+      print("Hoeveel champagne wil je toevoegen? (Geef een getal)")
+      aantalproduct = int(input(""))
+      for x in range(aantalproduct):
+        winkelmand.append("Champagne")
+    elif plusproduct == "Stop" or plusproduct == "stop":
+      doorgaan = False
+      print("Winkelmad:")
+      winkelmandinhoud()
+      keuzemenu()
+    else:
+      print("Dit is geen geldige keuze.")
+  
+
+def productweg():
+  
+  print("")
+  print("Winkelmand:")
+  winkelmandinhoud()
+  print("")
+  print("Welke van de bovenstaande producten wil je weg hebben?")
+  minproduct = input("")
+  if minproduct == "Brood" or minproduct == "brood":
+    print("Hoeveel daarvan wil je verwijderen?")
+    aantalproduct = int(input(""))
+    for x in range(aantalproduct):
+      winkelmand.remove("Brood")
+    print("je winkelmand bestaat nu uit: ")
+    winkelmandinhoud()
+  elif minproduct == "Water" or minproduct == "water":
+    print("Hoeveel daarvan wil je verwijderen?")
+    aantalproduct = int(input(""))
+    for x in range(aantalproduct):
+      winkelmand.remove("Water")
+    print("je winkelmand bestaat nu uit: ")
+    winkelmandinhoud()
+  elif minproduct == "Sap" or minproduct == "sap":
+    print("Hoeveel daarvan wil je verwijderen?")
+    aantalproduct = int(input(""))
+    for x in range(aantalproduct):
+      winkelmand.remove("Sap")
+    print("je winkelmand bestaat nu uit: ")
+    winkelmandinhoud()
+  elif minproduct == "Kaas" or minproduct == "kaas":
+    print("Hoeveel daarvan wil je verwijderen?")
+    aantalproduct = int(input(""))
+    for x in range(aantalproduct):
+      winkelmand.remove("Kaas")
+    print("je winkelmand bestaat nu uit: ")
+    winkelmandinhoud()
+  elif minproduct == "Champagne" or minproduct == "champagne":
+    print("Hoeveel daarvan wil je verwijderen?")
+    aantalproduct = int(input(""))
+    for x in range(aantalproduct):
+      winkelmand.remove("Champagne")
+    print("je winkelmand bestaat nu uit: ")
+    winkelmandinhoud()
+  else:
+    print("Dit is geen geldige keuze. ")
+
+def vervang():
+  print("")
+  for x in range(len(winkelmand)):
+    print(winkelmand[x])
+  print("Welk product wil je vervangen? (Typ een getal) ")
+  vervangproduct = int(input(""))
+  print("Welk product wil je ervoor in de plaats zetten?")
+  vervanging = input("")
+  if vervanging == "Brood" or vervanging == "brood":
+    winkelmand[vervangproduct] = "Brood"
+  elif vervanging == "Water" or vervanging == "water":
+    winkelmand[vervangproduct] = "Water"
+  elif vervanging == "Sap" or vervanging == "sap":
+    winkelmand[vervangproduct] = "Sap"
+  elif vervanging == "Kaas" or vervanging == "kaas":
+    winkelmand[vervangproduct] = "Kaas"
+  elif vervanging == "Champagne" or vervanging == "champagne":
+    winkelmand[vervangproduct] = "Champagne"
+  print("Winkelmand:")
+  winkelmandinhoud()
+  keuzemenu()
+  
+ 
+welkomsbericht()
